@@ -15,54 +15,32 @@ Some of the features that will be implemented in future are numerical stability 
     $$Z^{[1]}=W^{[1]}a^{[0]} + b^{[1]}$$
 ### **Activation Functions**
 * **Binary Step Function -** Most simple activation function
-    $$f(x) =
-    \begin{cases}
-    1 & \text{if } x \ge  0 \\
-    0 & \text{if } x < 0
-    \end{cases}
-    $$
+
 * **Linear Function -** simple transformation function where output is directly propotional to the input. Also called <ins>***Identity function***</ins>. 
-    $$ 
-    i.e., f(x) = \alpha x
-    $$ 
+
 * **Sigmoid Function -** Transform the values between range 0 and 1.
-    $$ f(x) = \frac{1}{1 + e^{(-x)}} $$
+
 * **Tanh -** Transforms the values in range from -1 to 1. And, is symmetric around origin.
-    $$\tanh(x) = 2 \times \frac{1}{1 + e^{(-2x)}} -1 $$
+
 * **Rectified Linear Unit Function -** It deactivates the neuron if the output of [linear transformation](#Layers) if it is a negetive. Thus, causing zero gradients and kills the neuron.
-    $$f(x) = \max \{0, x\}$$
+
 * **Leaky ReLU -** Which is a modified version of <ins>*ReLU*</ins>. Instead of deactivating neurons when `x < 0`, it multiply by a small decimal number `0.01`.
-    $$f(x) =
-    \begin{cases}
-    0.01x & \text{if } x < 0 \\
-    x & \text{if } x \ge 0
-    \end{cases}
-    $$
+
 * **Parameterised ReLU -** Another modified version of <ins>*ReLU*</ins> to solve the [dead neuron](https://arxiv.org/pdf/2302.05818) problem. It solves this by introducing a slope (which is `Hyperparameter`).
-    $$f(x) = 
-    \begin{cases}
-    x & \text{if } x \ge 0 \\
-    \alpha x & \text{if } x < 0
-    \end{cases}
-    $$
+
 * **Exponential Linear Unit -** Varient of <ins>*ReLU*</ins> that modifies the slope of the negetive part of the function. `ELU` uses a log curve for defining the negetive value.
-    $$f(x) =
-    \begin{cases}
-    x & \text{if } x > 0 \\
-    \alpha (e^x - 1) & \text{if } x \le 0
-    \end{cases}
-    $$ 
+
 * **Softmax -** Softmax returns the value between 0 and 1. It converts unnormalized logits into a valid probability distribution. $\sigma \in (0, 1)^k$, where $K > 1$.
-    $$ \sigma (z)_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_i}}$$
+
 ### **Loss Function**
 * **Mean Absolute Error -** commonly used in a regression problem, it is the average of sum of absolute difference between target and predicted values.
-    $$i.e. MAE = \frac{\sum_{i=1}^{N} |y_i - \hat{y_i}|}{N}$$
+
 * **Mean Squared Error -** improved varient of *MAE*, it is the average squared difference of target and predicted values. It penalizes the large outliers.
-    $$i.e. MAE = \frac{\sum_{i=1}^{N} |y_i - \hat{y_i}|^2}{N}$$
+
 * **Binary Cross Entropy -** also called *log loss* is a popular loss function in [Binary classification](https://en.wikipedia.org/wiki/Binary_classification) problems.
-    $$L(y,\hat{y}) = -\frac{1}{N} \sum{i=1}^{N}(y_i \cdot \log \hat{y_i} + (1 - y_i) \cdot \log (1 - \hat{y_i}))$$
+
 * **Categorical Cross-Entropy -** Measures the difference between true label and predicted label. It is widely used in [Multi-label Classification](https://en.wikipedia.org/wiki/Multi-label_classification). `C` is the number of classes
-    $$L(y, \hat{y_i}) = - \sum{i=1}^{c} y_i \log (\hat{y_i})$$
+
 
 ### Backpropogation
 In simpler terms, This is derivated of the [Layer](#layers) and [Activations](#activation-functions) combined together in chain rule of derivation to calculate the subsequent pervious layer weight, bias and input gradients. 
