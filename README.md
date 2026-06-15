@@ -47,7 +47,7 @@ In simpler terms, This is derivated of the [Layer](#layers) and [Activations](#a
 
 Suppose, we pass the input by *DenseLayer* first and then *ReLU*. Let `X` be the input feature of dimension `N x M`.
     $$Z^{[0]}=W^{[0]}X + b^{[0]}$$
-    $$ \alpha^{[1]} = max \{0, Z^{[0]}\}$$ 
+    $$\alpha^{[1]} = max \{0, Z^{[0]}\}$$ 
     $$\hat{y} = \alpha^{[1]}$$
 
 Now the output of the model will be the $\alpha^{[1]}$. If we do the backpropogation, it is started by calculating the `Loss gradient` using [Loss functions](#loss-function) and applying chain rule. 
