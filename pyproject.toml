@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+# Config file
+[project]
+name = "Axiom_ML"
+version = "1.0.0"
+description = "Open source deep learning framework, designed and build from scratch to understand the core mathematics and algorithm implementation."
+readme = "README.md"
+requires-python = ">=3.0"
+license = {text = "MIT"}
+authors = [
+	{name="Prabhdeep Singh", email="prabhdeepsidhu310@gmail.com"}
+	]
+dependencies = [
+		"numpy",
+		"matplotlib",
+		]
+
+[project.urls]
+Homepage = "https://github.com/iprabhsidhu/Axiom-ML"
+
+[project.optional-dependencies]
+dev = ["jupyter","pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
