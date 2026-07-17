@@ -47,13 +47,17 @@ In simpler terms, This is derivated of the [Layer](#layers) and [Activations](#a
 
 Suppose, we pass the input by *DenseLayer* first and then *ReLU*. Let `X` be the input feature of dimension `N x M`.
     $$Z^{[0]}=W^{[0]}X + b^{[0]}$$
-    $$ \alpha^{[1]} = max \{0, Z^{[0]}\}$$ 
+    $$\alpha^{[1]} = max \{0, Z^{[0]}\}$$ 
     $$\hat{y} = \alpha^{[1]}$$
 
 Now the output of the model will be the $\alpha^{[1]}$. If we do the backpropogation, it is started by calculating the `Loss gradient` using [Loss functions](#loss-function) and applying chain rule. 
     $$
     i.e. \frac{\partial \mathcal{L}}{\partial Z} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial \alpha^{[1]}} \cdot \frac{\partial \alpha^{[1]}}{\partial Z^{[0]}}
     $$
+
+### Models
+* **Linear Regression**
+* **MultiLayer Perceptron** `Testing`
 
 ## Installation
 clone the github repository by using the following command
@@ -88,7 +92,7 @@ These [features](#Features) are tests and untested marked by a tick.
 - [ ] **Linear Function**
 - [ ] **sigmoid**
 - [ ] **tanh**
-- [ ] **ReLU**
+- [x] **ReLU**
 - [ ] **Leaky ReLU**
 - [ ] **Parameterised ReLU**
 - [ ] **ELU**
@@ -97,7 +101,7 @@ These [features](#Features) are tests and untested marked by a tick.
 - [x] **Mean Absolute Error**
 - [x] **Mean Squared Error**
 - [ ] **Binary Cross-Entropy**
-- [ ] **Categorical Cross-Entropy**
+- [x] **Categorical Cross-Entropy**
 
 ## Contribute
 If you are considering contributing to the project. Here are the [Contribution guideline for the project](./CONTRIBUTING.md)
