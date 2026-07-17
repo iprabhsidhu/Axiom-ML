@@ -69,9 +69,9 @@ class BCE(Loss):
 class CCE(Loss):
 
     def forward(self):
-        return -np.mean(np.sum(self.y_true * np.log(self.y_preds), axis=-1))
+        return -np.mean(np.sum(self.y_true * np.log(self.y_preds)))
 
     def backward(self, model : Layer):
-        return model.backward(-np.sum(self.y_true * np.log(self.y_preds)) / self.y_true.shape[0])
+        return model.backward(-(self.y_true * np.log(self.y_preds)) / self.y_true.shape[0])
 
 
