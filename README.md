@@ -55,6 +55,10 @@ Now the output of the model will be the $\alpha^{[1]}$. If we do the backpropoga
     i.e. \frac{\partial \mathcal{L}}{\partial Z} = \frac{\partial \mathcal{L}}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial \alpha^{[1]}} \cdot \frac{\partial \alpha^{[1]}}{\partial Z^{[0]}}
     $$
 
+### Models
+* **Linear Regression**
+* **MultiLayer Perceptron** `Testing`
+
 ## Installation
 clone the github repository by using the following command
 ```
@@ -88,7 +92,7 @@ These [features](#Features) are tests and untested marked by a tick.
 - [ ] **Linear Function**
 - [ ] **sigmoid**
 - [ ] **tanh**
-- [ ] **ReLU**
+- [x] **ReLU**
 - [ ] **Leaky ReLU**
 - [ ] **Parameterised ReLU**
 - [ ] **ELU**
@@ -97,7 +101,7 @@ These [features](#Features) are tests and untested marked by a tick.
 - [x] **Mean Absolute Error**
 - [x] **Mean Squared Error**
 - [ ] **Binary Cross-Entropy**
-- [ ] **Categorical Cross-Entropy**
+- [x] **Categorical Cross-Entropy**
 
 ## Contribute
 If you are considering contributing to the project. Here are the [Contribution guideline for the project](./CONTRIBUTING.md)

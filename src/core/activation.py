@@ -67,7 +67,7 @@ class ReLU(Layer):
         return np.where(X >= 0, X, 0)
 
     def backward(self, output_grad : np.ndarray):
-        return np.where(X >= 0, 1, 0) * output_grad
+        return np.where(self.X >= 0, 1, 0) * output_grad
 
 class LeakyReLU(Layer):
     def __init__(self):
