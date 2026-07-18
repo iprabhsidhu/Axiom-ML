@@ -67,11 +67,12 @@ class BCE(Loss):
 
 # Categorical Cross Entropy
 class CCE(Loss):
-
     def forward(self):
-        return -np.mean(np.sum(self.y_true * np.log(self.y_preds)))
+        c = np.max(self.y_preds, axis=1, keepdims=True)
+        shifted_exp = np.exp(self.y_preds - c)
+        self.softmax_probs = shifted_exp / np.sum(shifted_exp, axis=1, keepdims=True)
+        Z_k = np.sum(self.y_true * self.y_preds, axis=1, keepdims=True)
+        return np.mean(-Z_k + c + np.log(np.sum(shifted_exp, axis=1, keepdims=True)))
 
     def backward(self, model : Layer):
-        return model.backward(-(self.y_true * np.log(self.y_preds)) / self.y_true.shape[0])
-
-
+        return model.backward((self.softmax_probs - self.y_true) / self.y_true.shape[0])
